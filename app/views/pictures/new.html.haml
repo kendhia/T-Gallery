@@ -1,0 +1,21 @@
+.container
+  .form-signin
+    %h2.form-signin-heading.title Upload a new Picture
+    = form_for @picture, :html => { :multipart => true } do |f|
+      - if @picture.errors.any?
+        - for message in @picture.errors.full_messages
+          %div.alert-error
+            %a.close{"data-dismiss" => "alert"} ×
+            = message
+      %p
+        = f.label :name, "Name (Optional)"
+        = f.text_field :name
+      %p
+        = f.label :description, "Description (Optional)"
+        = f.text_area :description
+      %p
+        = f.label :photo, "Photo*"
+        = f.file_field :photo
+
+    
+      %p.button= f.submit

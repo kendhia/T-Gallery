@@ -1,0 +1,41 @@
+== Welcome to T-Gallery
+T-Gallery is a RoR application(with twitter bootstrap and jquery) to Upload and Share your images.
+
+== What should i install first to run this application ?
+=> Rails 3.2.11
+=> Ruby 1.9.3p385
+
+== Getting Started
+1.Change directory to your app :
+      cd */T-Gallery
+2. At the command prompt, run:
+      bundle install
+#to install all the gems required by this application
+
+3. At the command prompt, run:
+       rails s 
+#to start the application 
+
+3. Go to http://localhost:3000/ to see a live version of the application.
+
+4. Follow the following guideline to start using the application:
+  1.You can register as a new user by clicking on signup "/signup" or connect with your Facebook account "/auth/facebook".
+  2.After registration a login page will appear.
+  3.After loging in a new links will appear in the navbar "My Gallery & Upload".
+    "My Gallery" => to visit the images you've uploaded recently.
+    "Upload " => to upload a new images.
+  4.you can Share your images by visiting Your gallery and click on the picture you want to share.
+  5.You can edit your Avatar used in this application by visiting Gravatar.com.
+
+== Dependencies:
+*gem "haml-rails"
+*gem "html2haml"
+*gem "bootstrap-sass"
+*gem 'simple-rss'
+*gem 'oauth'
+*gem 'json'
+*gem 'bcrypt-ruby'
+*gem 'paperclip'
+*gem 'omniauth-facebook'
+
+

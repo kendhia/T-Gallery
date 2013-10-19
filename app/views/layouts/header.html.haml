@@ -1,0 +1,35 @@
+<header class="navbar navbar-fixed navbar-inverse">
+<nav class="navbar-inner">
+<div class="container">
+<a href="<%= root_path %>" class="brand"> T-Gallert </a>
+<ul class="nav">
+</ul>
+</div>
+</nav>
+</header>
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  %nav.navbar-inner
+    .container
+      = link_to "T-Gallery", root_path, :class => 'brand'
+      %ul.nav
+        %li
+          = link_to('About')      
+        - if  @current_user
+          %li
+            = link_to('My Gallery', '/log_out')
+        - if not @current_user
+          %li
+            = link_to('Login', '/log_in')
+
+        - if not @current_user
+          %li
+            = link_to('Sign up')
+      %div.pull-right
+        - if @current_user        
+          %a{:href => '/users/session[:user_id]'} kendhia@gmail.com
+          %a{:href => 'log_out'} Logout
+        - else 
+          %a{:href => '/log_in'} Login 
+          or
+          %a{:href => '/sign_up'} Signup 

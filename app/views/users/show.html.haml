@@ -1,0 +1,19 @@
+.container 
+  .row
+    .span0
+      - if @pictures
+        %h4.title #{@user}'s Gallery
+        %img.img-circle{:src => avatar_url(@email) , :style => "float:left"} 
+      %br
+      %br
+      %br
+      %br     
+      %small (visit Gravatar.com to
+      %br          
+      %small change your avatar)
+    .span6
+      .row-fluid
+        - @pictures.each do |pic|
+          .span4
+            %a{:href => "/pictures/#{pic.id}"}
+              %img{:src => pic.photo.url}

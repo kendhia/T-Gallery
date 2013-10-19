@@ -1,0 +1,25 @@
+.container
+  .row
+    .span0
+      %h3 Photo submited by #{@user}
+      %blockquote
+        %small Created at #{@date}
+      %h2 #{@name}
+      %img.img-single{:src => @picture.photo.url}
+      .addthis_toolbox.addthis_floating_style.addthis_32x32_style{:style => "left:800px;top:220px;"}
+        %a.addthis_button_facebook
+        %a.addthis_button_twitter
+        %a.addthis_button_google_plusone_share
+        %a.addthis_button_pinterest_share
+        %a.addthis_button_compact
+      %br
+      %small Description: #{@description}
+      
+      
+      
+      
+      
+      
+%script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51ae631a27bc6712", :type => "text/javascript"}
+
+      

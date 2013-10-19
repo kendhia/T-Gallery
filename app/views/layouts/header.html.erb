@@ -1,0 +1,21 @@
+<header class="navbar navbar-fixed navbar-inverse">
+<nav class="navbar-inner">
+<div class="container">
+<a href="<%= root_path %>" class="brand"> T-Gallert </a>
+<ul class="nav">
+<li href="#">About</li>
+<%= if @current_user %>
+<li href="/users/<%= @current_user.id%>">My Gallery</li>
+<%= end if %>
+</ul>
+<div class="pull-right">
+<%= if @current_user %>
+<a href="/users/<%= session[:user_id]%>"> <=% @current_user.email%>  </a>
+<a href="/log_out"> Logout </a>
+<%= else %>
+<a href="/log_in"> Login </a>
+<a href="/sign_up"> Signup </a>
+<%= end if %>
+</div>
+</nav>
+</header>

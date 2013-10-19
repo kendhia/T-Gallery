@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  genre: MyString
+  url: MyString
+  mark: 1
+
+two:
+  genre: MyString
+  url: MyString
+  mark: 1

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>T-Gallery- <%= @page_title %> </title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-fixed navbar-inverse">
+<nav class="navbar-inner">
+<div class="container">
+<a href="<%= root_path %>" class="brand"> T-Gallery </a>
+<div class="nav-collapse collapse">
+<ul class="nav">
+<% if current_user %>
+<li> <a href ="/upload">Upload</a> </li>
+<li> <a href ="/users/sidufhqsdklf">My Gallery</a></li>
+<% end %>
+<li> <a href="/contact">Contact</a></li>
+<li> <a href="/about">About</a></li>
+</ul>
+</div>
+<div class="pull-right">
+<% if current_user %>
+Logged in as 
+<a href="/users/Mygallery"><%= current_user %> </a>
+ |
+<a href="/log_out"> Logout </a>
+<% else %>
+<a href="/log_in"> Login </a>
+or
+<a href="/sign_up"> Signup </a>
+or 
+<a href="/auth/facebook">Sign in with Facebook</a>
+<% end %>
+
+</div>
+</div>
+</div>
+
+</nav>
+</header>
+<div class="container">
+<div class="text-error">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+</div>
+</div>
+<%= yield %>
+</body>
+</html>

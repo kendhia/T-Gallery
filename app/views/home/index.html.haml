@@ -1,0 +1,50 @@
+.container
+  %h1.title T-Gallery
+  %blockquote  It's very simple, Upload you image and Share it with your best friends!
+
+  %br
+  %br
+  %a.btn.btn-success.btn-large{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Start a Slidesshow
+  %br
+  %br
+  / Modal
+  #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3#myModalLabel Full Gallery
+    .modal-body
+      #myCarousel.carousel.slide
+        / Carousel items
+        .carousel-inner
+          
+          .active.item.img-slide
+            %img{:alt => "HTML5 logo", :src => @pictures.first.photo.url}/
+          - @pictures.each do |pic|          
+            .item.img-slide
+              %img{:alt => "JS logo",:src => pic.photo.url}/
+        / Carousel nav
+        %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} ‹
+        %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} ›
+      .modal-footer
+        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+  - if @pictures
+    - @pictures.each do |pic|
+      %a
+        %img.gallery{:alt => "Smiley face", :src => pic.photo.url}
+
+:javascript
+  !function ($){
+    $(function ()  
+    { $("#example").popover();  
+    })
+  }(window.jQuery)
+
+
+
+
+
+
+
+
+
+

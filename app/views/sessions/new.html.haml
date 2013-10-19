@@ -1,0 +1,11 @@
+.container
+  .form-signin
+    %h2.form-signin-heading.title Log in
+    = form_tag sessions_path do
+      %p
+        = label_tag :email, "Email adress"
+        = text_field_tag :email, params[:email]
+      %p
+        = label_tag :password
+        = password_field_tag :password    
+      %button.button= submit_tag

@@ -1,0 +1,18 @@
+.container
+  .form-signin
+    %h2.form-signin-heading.title Contact us 
+    = form_tag :action => 'sendmail' do 
+      %p
+        %label{:for => "email_subject"}> Subject
+        \:
+        \#{text_field 'email', 'subject'}
+        
+      %p
+        %label{:for => "email_recipient"}> Recipient
+        \:
+        \#{text_field 'email', 'recipient'}
+      %p
+        %label{:for => "email_message"} Message
+        %br/
+        = text_area 'email', 'message'
+      = submit_tag "Send"

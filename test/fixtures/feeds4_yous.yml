@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  genre: MyString
+  content: MyString
+  title: MyString
+  pub_date: MyString
+  score: 1
+  visits: 1
+
+two:
+  genre: MyString
+  content: MyString
+  title: MyString
+  pub_date: MyString
+  score: 1
+  visits: 1

@@ -1,0 +1,31 @@
+require 'open-uri'
+class HomeController < ApplicationController
+  def index
+    baseurl = "https://api.twitter.com"
+    tweet_id = 310842739031957505
+    address = URI("#{baseurl}/1.1/account/verify_credentials.json")
+    address2 = URI("#{baseurl}/1.1/statuses/show.json?id=#{tweet_id}")
+    consumer_key = OAuth::Consumer.new(
+        "Ynt5jYxM6XKmmlsGblfJw",
+        "1YYsmPkOYY7vb8Bg72czuCxDoI9UHlVmRTM1P42NQ")
+    access_token = OAuth::Token.new(
+        "339817437-j9fFBJ6w94Ne8PKEUqYMyyYSFDRYHKE7vlmBJT7I",
+        "O4U054OrIbnOmJab0sATz2v6nWVv3ixoWCwKm9ZO0Y")
+
+    #authors = ["http://feeds.feedburner.com/kendhia?format=xml","http://feeds.feedburner.com/google?format=xml"]
+    #@feeds = []
+    #authors.each {|t|
+     # feed = SimpleRSS.parse open(t)
+      #@feeds << feed
+    #}
+    http = Net::HTTP.new address2.host, address2.port
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+    request = Net::HTTP::Get.new address2.request_uri
+    request.oauth! http, consumer_key, access_token
+    http.start
+    response = http.request request
+    #@data = JSON.parse(response.body)
+    @tweet = JSON.parse(response.body)
+  end
+end
